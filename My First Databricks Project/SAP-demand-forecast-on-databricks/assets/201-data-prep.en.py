@@ -125,19 +125,6 @@ dbutils.widgets.text("aws_bucket_name", "")
 
 # COMMAND ----------
 
-# Since I used external location, I can skip this mount command below 
-
-##  DO nOT EXECUTE THIS CELL AT ALL
-
-# # Specify the folder name when mounting
-mount_name = dbutils.widgets.get("aws_bucket_name")
-
-# # Mounting an S3 bucket
-dbutils.fs.mount(f"s3a://{mount_name}", f"/mnt/{mount_name}")
-display(dbutils.fs.ls(f"/mnt/{mount_name}"))
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC If a table containing the path of the mounted directory is displayed, the operation was successful.
 # MAGIC To unmount, uncomment and run the following cell:
